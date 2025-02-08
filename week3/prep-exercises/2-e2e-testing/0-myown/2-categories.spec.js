@@ -33,28 +33,37 @@ describe("Categories", () => {
     // Get a baseline check that we have 20 products
     cy.get('[data-testid="product-link"]').should("have.length", 20);
 
-    cy.get('[data-testid="categories-list"]').within(() => {
-      cy.get('[data-elementid="electronics"]').click();
+    cy.get('[data-testid="electronics"]').click();
+    cy.get('[data-testid="electronics"]').click();
 
-      // Check that the category is selected
-      cy.get('[data-selected="true"]').should("have.length", 1);
-      cy.get('[data-selected="false"]').should("have.length", 3);
-    });
-
-    // Now we should only have 6!
-    cy.get('[data-testid="product-link"]').should("have.length", 6);
+    // Check that the category is selected
+    cy.get('[data-selected="true"]').should("have.length", 1);
+    cy.get('[data-selected="false"]').should("have.length", 3);
   });
 
-  it("Selecting a new category should deselect the old one", () => {
-    /**
-     * Time for you to write your first test!!
-     *
-     * We will give you a couple of steps here, this does not mean that every step is 1 line of code!
-     */
-    // 1. Check that no category is selected
-    // 2. Click a category
-    // 3. Check that that category is selected
-    // 4. Click a different category
-    // 5. Check that only the new category is selected
+  // Now we should only have 6!
+  cy.get('[data-testid="product-link"]').should("have.length", 6);
+});
+
+it("Selecting a new category should deselect the old one", () => {
+  cy.get('[data-testid="categories-list"]').within(() => {
+    cy.get('[data-selected="false"]').should("have.length", 4);
   });
+
+  cy.get('[data-testid="categories-list"]').within(() => {
+    cy.get('[data-elementid="electronics"]').click();
+  });
+
+  cy.get('[data-testid="categories-list"]').within(() => {
+    cy.get('[data-selected="true"]').should("have.length", 1);
+    cy.get('[data-selected="false"]').should("have.length", 3);
+  });
+
+  cy.get('[data-testid="clothing"]').click();
+  cy.get('[data-testid="clothing"]').click();
+});
+
+cy.get('[data-testid="categories-list"]').within(() => {
+  cy.get('[data-selected="true"]').should("have.length", 1);
+  cy.get('[data-selected="false"]').should("have.length", 3);
 });
