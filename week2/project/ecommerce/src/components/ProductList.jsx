@@ -1,19 +1,27 @@
 import PropTypes from "prop-types";
-import ProductItem from "./ProductItem";
+import { Link } from "react-router-dom";
+import "./ProductList.css";
 
 export default function ProductList({ products }) {
   return (
-    <section className="product-container">
-      <ul>
-        {products.length > 0 ? (
-          products.map((product) => (
-            <ProductItem key={product.id} product={product} />
-          ))
-        ) : (
-          <p>No products found.</p>
-        )}
-      </ul>
-    </section>
+    <div className="product-container">
+      {products.map((product) => (
+        <Link
+          key={product.id}
+          to={`/product/${product.id}`}
+          className="product-link"
+        >
+          <div className="product--item">
+            <img
+              src={product.image}
+              alt={product.title}
+              className="product--image"
+            />
+            <h3 className="product--title">{product.title}</h3>
+          </div>
+        </Link>
+      ))}
+    </div>
   );
 }
 
