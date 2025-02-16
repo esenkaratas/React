@@ -1,4 +1,3 @@
-// src/hooks/useFetch.jsx
 import { useState, useEffect } from "react";
 
 const useFetch = (url) => {

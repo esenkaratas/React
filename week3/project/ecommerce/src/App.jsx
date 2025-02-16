@@ -1,22 +1,21 @@
-// src/App.jsx
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import React from "react";
+import { HashRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Products from "./pages/Products";
-import Favourites from "./pages/Favourites";
-import { FavouritesProvider } from "./context/FavouritesContext";
+import Favorites from "./pages/Favorites";
 
 function App() {
   return (
-    <FavouritesProvider>
-      <Router>
-        <nav>
-          <Link to="/">Home</Link> | <Link to="/favourites">Favourites</Link>
-        </nav>
-        <Routes>
-          <Route path="/" element={<Products />} />
-          <Route path="/favourites" element={<Favourites />} />
-        </Routes>
-      </Router>
-    </FavouritesProvider>
+    <Router>
+      <nav>
+        <Link to="/">Products</Link> | <Link to="/favorites">Favorites</Link>
+      </nav>
+      <Routes>
+        <Route path="/" element={<Products />} />
+        {/* Simplified route */}
+        <Route path="/favorites" element={<Favorites />} />
+        {/* Simplified route */}
+      </Routes>
+    </Router>
   );
 }
 

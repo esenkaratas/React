@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import FilteredCategories from "../components/FilteredCategories";
 import ProductList from "../components/ProductList";
 
@@ -16,7 +16,6 @@ const Products = () => {
     fetch("https://fakestoreapi.com/products/categories")
       .then((res) => res.json())
       .then((data) => {
-        console.log("Categories:", data);
         setCategories(data);
       })
       .catch(() => setError("Failed to load categories."))

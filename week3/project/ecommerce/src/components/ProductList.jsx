@@ -1,8 +1,14 @@
+import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import "./ProductList.css";
+import "../styles/ProductList.css";
+import HeartIcon from "./HeartIcon"; // Import HeartIcon
 
 export default function ProductList({ products }) {
+  if (!products || products.length === 0) {
+    return <p>No products available</p>;
+  }
+
   return (
     <div className="product-container">
       {products.map((product) => (
@@ -18,6 +24,7 @@ export default function ProductList({ products }) {
               className="product--image"
             />
             <h3 className="product--title">{product.title}</h3>
+            <HeartIcon id={product.id} />
           </div>
         </Link>
       ))}
