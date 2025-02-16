@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import "./ProductList.css";
+import "../styles/ProductList.css";
 
 export default function ProductList({ products }) {
   return (

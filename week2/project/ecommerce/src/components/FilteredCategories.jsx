@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import "./FilteredCategories.css";
+import "../styles/FilteredCategories.css";
 
 export default function FilteredCategories({
   allCategories = [],
