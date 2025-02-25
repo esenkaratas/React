@@ -3,6 +3,12 @@
   "version": "1.0.0",
   "type": "module",
   "main": "index.js",
+  "scripts": {
+    "start": "vite",
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
   "dependencies": {
     "acorn": "^8.14.0",
     "acorn-jsx": "^5.3.2",
@@ -207,7 +213,7 @@
     "unbox-primitive": "^1.1.0",
     "update-browserslist-db": "^1.1.2",
     "uri-js": "^4.4.1",
-    "vite": "^6.0.11",
+    "vite": "^6.2.0",
     "which": "^2.0.2",
     "which-boxed-primitive": "^1.1.1",
     "which-builtin-type": "^1.2.1",
@@ -217,13 +223,11 @@
     "yallist": "^3.1.1",
     "yocto-queue": "^0.1.0"
   },
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "serve": "vite preview"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "vite-plugin-svgr": "^4.3.0"
+  }
 }

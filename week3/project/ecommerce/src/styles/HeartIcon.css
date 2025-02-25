@@ -1,0 +1,13 @@
+.heart-icon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.heart-icon.favorite {
+  fill: red;
+}
+
+.heart-icon.not-favorite {
+  fill: gray;
+}

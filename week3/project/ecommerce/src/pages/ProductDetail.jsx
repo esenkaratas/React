@@ -1,34 +1,16 @@
-import { useEffect, useState } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
+import useFetch from "../hooks/useFetch";
 import "../styles/ProductDetail.css";
+import HeartIcon from "../components/HeartIcon";
 
 export default function ProductDetail() {
   const { id } = useParams();
-  const [product, setProduct] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    console.log("Product ID from URL:", id);
-    setLoading(true);
-    setError(null);
-
-    fetch(`https://fakestoreapi.com/products/${id}`)
-      .then((res) => res.json())
-      .then((data) => {
-        console.log("Fetched product details:", JSON.stringify(data, null, 2));
-        setProduct(data);
-      })
-      .catch((err) => {
-        console.error("Error fetching product details:", err);
-        setError("Failed to load product details.");
-      })
-      .finally(() => setLoading(false));
-  }, [id]);
-
-  useEffect(() => {
-    console.log("Component re-rendered, current product state:", product);
-  }, [product]);
+  const {
+    data: product,
+    loading,
+    error,
+  } = useFetch(`https://fakestoreapi.com/products/${id}`);
 
   if (loading)
     return <p className="loading-message">Loading product details...</p>;
@@ -48,6 +30,7 @@ export default function ProductDetail() {
         alt={product.title}
         className="product-detail-image"
       />
+      <HeartIcon id={product.id} />
     </div>
   );
 }

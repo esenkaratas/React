@@ -2,9 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import "../styles/ProductList.css";
-import HeartIcon from "./HeartIcon"; // Import HeartIcon
+import HeartIcon from "./HeartIcon";
 
-export default function ProductList({ products }) {
+export default function ProductList({ products = [] }) {
   if (!products || products.length === 0) {
     return <p>No products available</p>;
   }
@@ -33,5 +33,5 @@ export default function ProductList({ products }) {
 }
 
 ProductList.propTypes = {
-  products: PropTypes.array.isRequired,
+  products: PropTypes.array,
 };

@@ -38,7 +38,7 @@ export default function FilteredCategories({
 }
 
 FilteredCategories.propTypes = {
-  allCategories: PropTypes.array.isRequired,
+  allCategories: PropTypes.array,
   activeCategory: PropTypes.string.isRequired,
   setActiveCategory: PropTypes.func.isRequired,
 };

@@ -2,6 +2,7 @@ import React from "react";
 import { HashRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Products from "./pages/Products";
 import Favorites from "./pages/Favorites";
+import ProductDetail from "./pages/ProductDetail";
 
 function App() {
   return (
@@ -11,9 +12,8 @@ function App() {
       </nav>
       <Routes>
         <Route path="/" element={<Products />} />
-        {/* Simplified route */}
         <Route path="/favorites" element={<Favorites />} />
-        {/* Simplified route */}
+        <Route path="/product/:id" element={<ProductDetail />} />
       </Routes>
     </Router>
   );
